@@ -78,7 +78,3 @@ Many hours of hard work have gone into this project. Your support will be very a
 
 
 # movie-app
-# supark-portfolio
-# supark-portfolio
-# supark-portfolio
-# wordpress

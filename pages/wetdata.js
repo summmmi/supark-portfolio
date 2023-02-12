@@ -5,7 +5,6 @@ import Footer from "../components/Footer";
 import Head from "next/head";
 import Header from "../components/Header";
 import ProjectResume from "../components/ProjectResume";
-import Socials from "../components/Socials";
 import Button from "../components/Button";
 import { useTheme } from "next-themes";
 // Data
@@ -16,22 +15,13 @@ const Resume = () => {
   const router = useRouter();
   const theme = useTheme();
   const [mount, setMount] = useState(false);
-  const handleWorkScroll = () => {
-    window.scrollTo({
-      top: workRef.current.offsetTop,
-      left: 0,
-      behavior: "smooth",
-    });
-  };
 
-  const handleAboutScroll = () => {
-    window.scrollTo({
-      top: aboutRef.current.offsetTop,
-      left: 0,
-      behavior: "smooth",
-    });
-  };
-
+  useEffect(() => {
+    setMount(true);
+    if (!showResume) {
+      router.push("/");
+    }
+  }, []);
 
   return (
     <div className={`relative ${data.showCursor && "cursor-none"}`}>
@@ -44,10 +34,7 @@ const Resume = () => {
       <div className="gradient-circle-bottom"></div>
 
       <div className="container mx-auto mb-10">
-        <Header
-          handleWorkScroll={handleWorkScroll}
-          handleAboutScroll={handleAboutScroll}
-        />
+      <Header isBlog />
         <div className="mt-10 w-full flex flex-col items-center">
             <div className="w-full max-w-4xl p-20 mob:p-5 desktop:p-20 rounded-lg ">
                 <h1 className="text-4xl font-bold">Wet Data</h1>
